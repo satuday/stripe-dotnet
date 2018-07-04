@@ -27,6 +27,7 @@ namespace Stripe.Infrastructure.Middleware
                 new SubscriptionItemPlugin(),
                 new SubscriptionItemUpdatedPlugin(),
                 new InvoiceSubscriptionItemPlugin(),
+                new PaymentIntentAllowedSourceTypesPlugin(),
                 new ChargeLevel3Plugin()
             };
         }

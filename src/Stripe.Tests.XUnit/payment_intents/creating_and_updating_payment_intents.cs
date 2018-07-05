@@ -51,6 +51,14 @@ namespace Stripe.Tests.Xunit
         }
 
         [Fact]
+        public void next_source_action_deserialized_properly()
+        {
+            fixture.PaymentIntent.NextSourceAction.Type.Should().Be(StripePaymentIntentSourceActionType.None);
+            fixture.PaymentIntentWithSourceAction.NextSourceAction.Type.Should().Be(StripePaymentIntentSourceActionType.AuthorizeWithUrl);
+            fixture.PaymentIntentWithSourceAction.NextSourceAction.AuthorizeWithUrl.Url.Should().NotBeNull();
+        }
+
+        [Fact]
         public void captured_has_the_right_information()
         {
             fixture.PaymentIntentCaptured.Should().NotBeNull();

@@ -89,6 +89,10 @@ namespace Stripe
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
 
+
+        [JsonProperty("next_source_action")]
+        public StripePaymentIntentSourceAction NextSourceAction { get; set; }
+
         #region Expandable OnBehalfOf (Account)
         public string OnBehalfOfId { get; set; }
 

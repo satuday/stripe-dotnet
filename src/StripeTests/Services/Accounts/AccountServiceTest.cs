@@ -6,32 +6,32 @@ namespace StripeTests
     using Stripe;
     using Xunit;
 
-    public class StripeAccountServiceTest : BaseStripeTest
+    public class AccountServiceTest : BaseStripeTest
     {
         private const string AccountId = "acct_123";
 
-        private StripeAccountService service;
-        private StripeAccountCreateOptions createOptions;
-        private StripeAccountUpdateOptions updateOptions;
-        private StripeAccountListOptions listOptions;
-        private StripeAccountRejectOptions rejectOptions;
+        private AccountService service;
+        private AccountCreateOptions createOptions;
+        private AccountUpdateOptions updateOptions;
+        private AccountListOptions listOptions;
+        private AccountRejectOptions rejectOptions;
 
-        public StripeAccountServiceTest()
+        public AccountServiceTest()
         {
-            this.service = new StripeAccountService();
+            this.service = new AccountService();
 
-            this.createOptions = new StripeAccountCreateOptions
+            this.createOptions = new AccountCreateOptions
             {
-                Type = StripeAccountType.Custom,
-                ExternalCardAccount = new StripeAccountCardOptions()
+                Type = AccountType.Custom,
+                ExternalCardAccount = new AccountCardOptions()
                 {
                     TokenId = "tok_visa_debit"
                 },
-                LegalEntity = new StripeAccountLegalEntityOptions
+                LegalEntity = new AccountLegalEntityOptions
                 {
-                    AdditionalOwners = new List<StripeAccountAdditionalOwner>
+                    AdditionalOwners = new List<AccountAdditionalOwner>
                     {
-                        new StripeAccountAdditionalOwner
+                        new AccountAdditionalOwner
                         {
                             FirstName = "John",
                             LastName = "Doe",
@@ -41,7 +41,7 @@ namespace StripeTests
                             VerificationDocument = "file_123",
                             VerificationDocumentBack = "file_234",
                         },
-                        new StripeAccountAdditionalOwner
+                        new AccountAdditionalOwner
                         {
                             FirstName = "Jenny",
                             LastName = "Rosen",
@@ -58,7 +58,7 @@ namespace StripeTests
                 }
             };
 
-            this.updateOptions = new StripeAccountUpdateOptions()
+            this.updateOptions = new AccountUpdateOptions()
             {
                 Metadata = new Dictionary<string, string>()
                 {
@@ -66,12 +66,12 @@ namespace StripeTests
                 },
             };
 
-            this.rejectOptions = new StripeAccountRejectOptions
+            this.rejectOptions = new AccountRejectOptions
             {
                 Reason = "terms_of_service"
             };
 
-            this.listOptions = new StripeAccountListOptions()
+            this.listOptions = new AccountListOptions()
             {
                 Limit = 1,
             };

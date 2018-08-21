@@ -6,7 +6,7 @@
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class StripeAccount : StripeEntityWithId, ISupportMetadata
+    public class Account : StripeEntityWithId, ISupportMetadata
     {
         [JsonProperty("object")]
         public string Object { get; set; }
@@ -110,7 +110,7 @@
         public string PayoutStatementDescriptor { get; set; }
 
         [JsonProperty("verification")]
-        public StripeAccountVerification AccountVerification { get; set; }
+        public AccountVerification AccountVerification { get; set; }
 
         [JsonProperty("keys")]
         public StripeCustomAccountKeys CustomAccountKeys { get; set; }

@@ -22,7 +22,7 @@ namespace StripeTests
 
             this.createOptions = new StripeExternalAccountCreateOptions
             {
-                ExternalAccountBankAccount = new StripeAccountBankAccountOptions
+                ExternalAccountBankAccount = new AccountBankAccountOptions
                 {
                     AccountNumber = "000123456789",
                     Country = "US",

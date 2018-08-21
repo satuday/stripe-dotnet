@@ -8,23 +8,23 @@ namespace StripeTests
     using Stripe.Infrastructure;
     using Xunit;
 
-    public class StripeAccountCreateOptionsTest : BaseStripeTest
+    public class AccountCreateOptionsTest : BaseStripeTest
     {
-        private StripeAccountService service;
+        private AccountService service;
 
-        public StripeAccountCreateOptionsTest()
+        public AccountCreateOptionsTest()
         {
-            this.service = new StripeAccountService();
+            this.service = new AccountService();
         }
 
         [Fact]
         public void SerializeAdditionalOwnersProperly()
         {
-            var options = new StripeAccountCreateOptions
+            var options = new AccountCreateOptions
             {
-                LegalEntity = new StripeAccountLegalEntityOptions
+                LegalEntity = new AccountLegalEntityOptions
                 {
-                    AdditionalOwners = new List<StripeAccountAdditionalOwner>()
+                    AdditionalOwners = new List<AccountAdditionalOwner>()
                 },
             };
 

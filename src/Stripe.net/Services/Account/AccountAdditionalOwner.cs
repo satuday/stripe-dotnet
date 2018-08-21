@@ -2,7 +2,7 @@
 {
     using Newtonsoft.Json;
 
-    public class StripeAccountAdditionalOwner : INestedOptions
+    public class AccountAdditionalOwner : INestedOptions
     {
         [JsonProperty("[address][city]")]
         public string CityOrTown { get; set; }

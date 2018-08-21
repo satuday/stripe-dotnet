@@ -4,7 +4,7 @@
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class StripeAccountVerification : StripeEntity
+    public class AccountVerification : StripeEntity
     {
         [JsonProperty("disabled_reason")]
         public string DisabledReason { get; set; }

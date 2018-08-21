@@ -5,7 +5,7 @@
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public abstract class StripeAccountSharedOptions : StripeBaseOptions, ISupportMetadata
+    public abstract class AccountSharedOptions : StripeBaseOptions, ISupportMetadata
     {
         [JsonProperty("business_logo")]
         public string BusinessLogoFileId { get; set; }
@@ -35,13 +35,13 @@
         public string Email { get; set; }
 
         [JsonProperty("external_account")]
-        public StripeAccountCardOptions ExternalCardAccount { get; set; }
+        public AccountCardOptions ExternalCardAccount { get; set; }
 
         [JsonProperty("external_account")]
-        public StripeAccountBankAccountOptions ExternalBankAccount { get; set; }
+        public AccountBankAccountOptions ExternalBankAccount { get; set; }
 
         [JsonProperty("legal_entity")]
-        public StripeAccountLegalEntityOptions LegalEntity { get; set; }
+        public AccountLegalEntityOptions LegalEntity { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }

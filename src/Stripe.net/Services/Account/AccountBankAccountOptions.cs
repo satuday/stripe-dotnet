@@ -3,7 +3,7 @@
     using System;
     using Newtonsoft.Json;
 
-    public class StripeAccountBankAccountOptions : INestedOptions
+    public class AccountBankAccountOptions : INestedOptions
     {
         [JsonProperty("external_account[object]")]
         internal string Object => "bank_account";

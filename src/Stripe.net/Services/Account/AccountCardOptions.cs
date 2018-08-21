@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
-    public class StripeAccountCardOptions : INestedOptions, ISupportMetadata
+    public class AccountCardOptions : INestedOptions, ISupportMetadata
     {
         [JsonProperty("external_account[object]")]
         internal string Object => "card";

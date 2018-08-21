@@ -2,13 +2,13 @@
 {
     using Newtonsoft.Json;
 
-    public class StripeAccountCreateOptions : StripeAccountSharedOptions
+    public class AccountCreateOptions : AccountSharedOptions
     {
         [JsonProperty("country")]
         public string Country { get; set; }
 
         /// <summary>
-        /// One of <see cref="StripeAccountType"/>
+        /// One of <see cref="AccountType"/>
         /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; }

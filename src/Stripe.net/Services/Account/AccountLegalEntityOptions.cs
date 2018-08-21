@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
-    public class StripeAccountLegalEntityOptions : INestedOptions
+    public class AccountLegalEntityOptions : INestedOptions
     {
         #region Address
 
@@ -229,7 +229,7 @@
         #region Additional Owners
 
         [JsonProperty("legal_entity[additional_owners]")]
-        public List<StripeAccountAdditionalOwner> AdditionalOwners { get; set; }
+        public List<AccountAdditionalOwner> AdditionalOwners { get; set; }
 
         #endregion
     }

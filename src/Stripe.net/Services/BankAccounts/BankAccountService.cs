@@ -19,7 +19,7 @@
 
         public bool ExpandCustomer { get; set; }
 
-        public virtual CustomerBankAccount Create(string customerId, BankAccountCreateOptions createOptions, StripeRequestOptions requestOptions = null)
+        public virtual CustomerBankAccount Create(string customerId, BankAccountCreateOptions createOptions, RequestOptions requestOptions = null)
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 Requestor.PostString(
@@ -27,7 +27,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual CustomerBankAccount Get(string customerId, string bankAccountId, StripeRequestOptions requestOptions = null)
+        public virtual CustomerBankAccount Get(string customerId, string bankAccountId, RequestOptions requestOptions = null)
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 Requestor.GetString(
@@ -35,7 +35,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual CustomerBankAccount Update(string customerId, string bankAccountId, BankAccountUpdateOptions updateOptions, StripeRequestOptions requestOptions = null)
+        public virtual CustomerBankAccount Update(string customerId, string bankAccountId, BankAccountUpdateOptions updateOptions, RequestOptions requestOptions = null)
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 Requestor.PostString(
@@ -43,7 +43,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeDeleted Delete(string customerId, string bankAccountId, StripeRequestOptions requestOptions = null)
+        public virtual StripeDeleted Delete(string customerId, string bankAccountId, RequestOptions requestOptions = null)
         {
             return Mapper<StripeDeleted>.MapFromJson(
                 Requestor.Delete(
@@ -51,7 +51,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeList<CustomerBankAccount> List(string customerId, BankAccountListOptions listOptions = null, StripeRequestOptions requestOptions = null)
+        public virtual StripeList<CustomerBankAccount> List(string customerId, BankAccountListOptions listOptions = null, RequestOptions requestOptions = null)
         {
             return Mapper<StripeList<CustomerBankAccount>>.MapFromJson(
                 Requestor.GetString(
@@ -59,7 +59,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual CustomerBankAccount Verify(string customerId, string bankAccountId, BankAccountVerifyOptions verifyoptions, StripeRequestOptions requestOptions = null)
+        public virtual CustomerBankAccount Verify(string customerId, string bankAccountId, BankAccountVerifyOptions verifyoptions, RequestOptions requestOptions = null)
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 Requestor.PostString(
@@ -67,7 +67,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual async Task<CustomerBankAccount> CreateAsync(string customerId, BankAccountCreateOptions createOptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<CustomerBankAccount> CreateAsync(string customerId, BankAccountCreateOptions createOptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 await Requestor.PostStringAsync(
@@ -76,7 +76,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<CustomerBankAccount> GetAsync(string customerId, string bankAccountId, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<CustomerBankAccount> GetAsync(string customerId, string bankAccountId, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 await Requestor.GetStringAsync(
@@ -85,7 +85,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<CustomerBankAccount> UpdateAsync(string customerId, string bankAccountId, BankAccountUpdateOptions updateOptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<CustomerBankAccount> UpdateAsync(string customerId, string bankAccountId, BankAccountUpdateOptions updateOptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 await Requestor.PostStringAsync(
@@ -94,7 +94,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeDeleted> DeleteAsync(string customerId, string bankAccountId, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeDeleted> DeleteAsync(string customerId, string bankAccountId, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<StripeDeleted>.MapFromJson(
                 await Requestor.DeleteAsync(
@@ -103,7 +103,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeList<CustomerBankAccount>> ListAsync(string customerId, BankAccountListOptions listOptions = null, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeList<CustomerBankAccount>> ListAsync(string customerId, BankAccountListOptions listOptions = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<StripeList<CustomerBankAccount>>.MapFromJson(
                 await Requestor.GetStringAsync(
@@ -112,7 +112,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<CustomerBankAccount> VerifyAsync(string customerId, string bankAccountId, BankAccountVerifyOptions verifyoptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<CustomerBankAccount> VerifyAsync(string customerId, string bankAccountId, BankAccountVerifyOptions verifyoptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<CustomerBankAccount>.MapFromJson(
                 await Requestor.PostStringAsync(

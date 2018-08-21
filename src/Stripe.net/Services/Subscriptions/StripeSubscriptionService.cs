@@ -5,21 +5,21 @@
     using System.Threading.Tasks;
     using Stripe.Infrastructure;
 
-    public partial class StripeSubscriptionService : StripeService
+    public partial class SubscriptionService : StripeService
     {
-        public StripeSubscriptionService()
+        public SubscriptionService()
             : base(null)
         {
         }
 
-        public StripeSubscriptionService(string apiKey)
+        public SubscriptionService(string apiKey)
             : base(apiKey)
         {
         }
 
         public bool ExpandCustomer { get; set; }
 
-        public virtual StripeSubscription Get(string subscriptionId, StripeRequestOptions requestOptions = null)
+        public virtual StripeSubscription Get(string subscriptionId, RequestOptions requestOptions = null)
         {
             var url = string.Format(Urls.Subscriptions + "/{0}", subscriptionId);
 
@@ -29,7 +29,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeSubscription Create(string customerId, string planId, StripeSubscriptionCreateOptions createOptions = null, StripeRequestOptions requestOptions = null)
+        public virtual StripeSubscription Create(string customerId, string planId, SubscriptionCreateOptions createOptions = null, RequestOptions requestOptions = null)
         {
             var url = this.ApplyAllParameters(createOptions, Urls.Subscriptions, false);
             url = ParameterBuilder.ApplyParameterToUrl(url, "customer", customerId);
@@ -40,7 +40,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeSubscription Create(string customerId, StripeSubscriptionCreateOptions createOptions = null, StripeRequestOptions requestOptions = null)
+        public virtual StripeSubscription Create(string customerId, SubscriptionCreateOptions createOptions = null, RequestOptions requestOptions = null)
         {
             var url = this.ApplyAllParameters(createOptions, Urls.Subscriptions, false);
             url = ParameterBuilder.ApplyParameterToUrl(url, "customer", customerId);
@@ -51,7 +51,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeSubscription Update(string subscriptionId, StripeSubscriptionUpdateOptions updateOptions, StripeRequestOptions requestOptions = null)
+        public virtual StripeSubscription Update(string subscriptionId, SubscriptionUpdateOptions updateOptions, RequestOptions requestOptions = null)
         {
             var url = string.Format(Urls.Subscriptions + "/{0}", subscriptionId);
 
@@ -61,7 +61,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeSubscription Cancel(string subscriptionId, bool cancelAtPeriodEnd = false, StripeRequestOptions requestOptions = null)
+        public virtual StripeSubscription Cancel(string subscriptionId, bool cancelAtPeriodEnd = false, RequestOptions requestOptions = null)
         {
             var url = string.Format(Urls.Subscriptions + "/{0}", subscriptionId);
             url = ParameterBuilder.ApplyParameterToUrl(url, "at_period_end", cancelAtPeriodEnd.ToString());
@@ -70,7 +70,7 @@
                 Requestor.Delete(url, this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeList<StripeSubscription> List(StripeSubscriptionListOptions listOptions = null, StripeRequestOptions requestOptions = null)
+        public virtual StripeList<StripeSubscription> List(SubscriptionListOptions listOptions = null, RequestOptions requestOptions = null)
         {
             return Mapper<StripeList<StripeSubscription>>.MapFromJson(
                 Requestor.GetString(
@@ -78,7 +78,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual async Task<StripeSubscription> GetAsync(string subscriptionId, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeSubscription> GetAsync(string subscriptionId, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var url = string.Format(Urls.Subscriptions + "/{0}", subscriptionId);
 
@@ -89,7 +89,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeSubscription> CreateAsync(string customerId, string planId, StripeSubscriptionCreateOptions createOptions = null, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeSubscription> CreateAsync(string customerId, string planId, SubscriptionCreateOptions createOptions = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var url = this.ApplyAllParameters(createOptions, Urls.Subscriptions, false);
             url = ParameterBuilder.ApplyParameterToUrl(url, "customer", customerId);
@@ -101,7 +101,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeSubscription> CreateAsync(string customerId, StripeSubscriptionCreateOptions createOptions = null, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeSubscription> CreateAsync(string customerId, SubscriptionCreateOptions createOptions = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var url = this.ApplyAllParameters(createOptions, Urls.Subscriptions, false);
             url = ParameterBuilder.ApplyParameterToUrl(url, "customer", customerId);
@@ -113,7 +113,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeSubscription> UpdateAsync(string subscriptionId, StripeSubscriptionUpdateOptions updateOptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeSubscription> UpdateAsync(string subscriptionId, SubscriptionUpdateOptions updateOptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var url = string.Format(Urls.Subscriptions + "/{0}", subscriptionId);
 
@@ -124,7 +124,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeSubscription> CancelAsync(string subscriptionId, bool cancelAtPeriodEnd = false, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeSubscription> CancelAsync(string subscriptionId, bool cancelAtPeriodEnd = false, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var url = string.Format(Urls.Subscriptions + "/{0}", subscriptionId);
             url = ParameterBuilder.ApplyParameterToUrl(url, "at_period_end", cancelAtPeriodEnd.ToString());
@@ -136,7 +136,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeList<StripeSubscription>> ListAsync(StripeSubscriptionListOptions listOptions = null, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeList<StripeSubscription>> ListAsync(SubscriptionListOptions listOptions = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<StripeList<StripeSubscription>>.MapFromJson(
                 await Requestor.GetStringAsync(

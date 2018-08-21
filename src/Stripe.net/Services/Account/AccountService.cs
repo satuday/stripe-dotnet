@@ -19,7 +19,7 @@
 
         public bool ExpandBusinessLogo { get; set; }
 
-        public virtual Account Create(AccountCreateOptions createOptions, StripeRequestOptions requestOptions = null)
+        public virtual Account Create(AccountCreateOptions createOptions, RequestOptions requestOptions = null)
         {
             return Mapper<Account>.MapFromJson(
                 Requestor.PostString(
@@ -27,7 +27,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeList<Account> List(AccountListOptions listOptions = null, StripeRequestOptions requestOptions = null)
+        public virtual StripeList<Account> List(AccountListOptions listOptions = null, RequestOptions requestOptions = null)
         {
             var path = $"{Urls.BaseUrl}/accounts";
 
@@ -37,12 +37,12 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual Account Get(StripeRequestOptions requestOptions = null)
+        public virtual Account Get(RequestOptions requestOptions = null)
         {
             return this.Get(string.Empty, requestOptions);
         }
 
-        public virtual Account Get(string accountId, StripeRequestOptions requestOptions = null)
+        public virtual Account Get(string accountId, RequestOptions requestOptions = null)
         {
             var path = string.IsNullOrEmpty(accountId) ? $"{Urls.BaseUrl}/account" : $"{Urls.BaseUrl}/accounts/{accountId}";
 
@@ -52,7 +52,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual Account Update(string accountId, AccountUpdateOptions updateOptions, StripeRequestOptions requestOptions = null)
+        public virtual Account Update(string accountId, AccountUpdateOptions updateOptions, RequestOptions requestOptions = null)
         {
             return Mapper<Account>.MapFromJson(
                 Requestor.PostString(
@@ -60,7 +60,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual Account Reject(string accountId, AccountRejectOptions rejectOptions, StripeRequestOptions requestOptions = null)
+        public virtual Account Reject(string accountId, AccountRejectOptions rejectOptions, RequestOptions requestOptions = null)
         {
             return Mapper<Account>.MapFromJson(
                 Requestor.PostString(
@@ -68,7 +68,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual StripeDeleted Delete(string accountId, StripeRequestOptions requestOptions = null)
+        public virtual StripeDeleted Delete(string accountId, RequestOptions requestOptions = null)
         {
             return Mapper<StripeDeleted>.MapFromJson(
                 Requestor.Delete(
@@ -76,7 +76,7 @@
                     this.SetupRequestOptions(requestOptions)));
         }
 
-        public virtual async Task<Account> CreateAsync(AccountCreateOptions createOptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<Account> CreateAsync(AccountCreateOptions createOptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<Account>.MapFromJson(
                 await Requestor.PostStringAsync(
@@ -85,7 +85,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeList<Account>> ListAsync(AccountListOptions listOptions = null, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeList<Account>> ListAsync(AccountListOptions listOptions = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var path = $"{Urls.BaseUrl}/accounts";
 
@@ -96,12 +96,12 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual Task<Account> GetAsync(StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<Account> GetAsync(RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return this.GetAsync(string.Empty, requestOptions, cancellationToken);
         }
 
-        public virtual async Task<Account> GetAsync(string accountId, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<Account> GetAsync(string accountId, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var path = string.IsNullOrEmpty(accountId) ? $"{Urls.BaseUrl}/account" : $"{Urls.BaseUrl}/accounts/{accountId}";
 
@@ -112,7 +112,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<Account> UpdateAsync(string accountId, AccountUpdateOptions updateOptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<Account> UpdateAsync(string accountId, AccountUpdateOptions updateOptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<Account>.MapFromJson(
                 await Requestor.PostStringAsync(
@@ -121,7 +121,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<Account> RejectAsync(string accountId, AccountRejectOptions rejectOptions, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<Account> RejectAsync(string accountId, AccountRejectOptions rejectOptions, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<Account>.MapFromJson(
                 await Requestor.PostStringAsync(
@@ -130,7 +130,7 @@
                     cancellationToken).ConfigureAwait(false));
         }
 
-        public virtual async Task<StripeDeleted> DeleteAsync(string accountId, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        public virtual async Task<StripeDeleted> DeleteAsync(string accountId, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Mapper<StripeDeleted>.MapFromJson(
                 await Requestor.DeleteAsync(

@@ -95,7 +95,7 @@
         public string Timezone { get; set; }
 
         [JsonProperty("tos_acceptance")]
-        public StripeTermsOfServiceAcceptance TermsOfServiceAcceptance { get; set; }
+        public TermsOfServiceAcceptance TermsOfServiceAcceptance { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

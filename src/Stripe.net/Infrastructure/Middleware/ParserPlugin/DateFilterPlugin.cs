@@ -9,12 +9,12 @@
     {
         public bool Parse(ref string requestString, JsonPropertyAttribute attribute, PropertyInfo property, object propertyValue, object propertyParent)
         {
-            if (property.PropertyType != typeof(StripeDateFilter))
+            if (property.PropertyType != typeof(DateFilter))
             {
                 return false;
             }
 
-            var filter = (StripeDateFilter)propertyValue;
+            var filter = (DateFilter)propertyValue;
 
             if (filter.EqualTo.HasValue)
             {

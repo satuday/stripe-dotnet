@@ -5,7 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class AccountRejectOptions : StripeBaseOptions
+    public class AccountRejectOptions : BaseOptions
     {
         [JsonProperty("reason")]
         public string Reason { get; set; }

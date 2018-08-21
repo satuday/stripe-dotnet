@@ -4,7 +4,7 @@ namespace StripeTests.Infrastructure.TestData
     using Newtonsoft.Json;
     using Stripe;
 
-    public class TestUnencodableOptions : StripeBaseOptions
+    public class TestUnencodableOptions : BaseOptions
     {
         public TestUnencodableOptions()
         {

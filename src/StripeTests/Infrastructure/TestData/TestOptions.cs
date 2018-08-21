@@ -7,7 +7,7 @@ namespace StripeTests.Infrastructure.TestData
     using Newtonsoft.Json.Converters;
     using Stripe;
 
-    public class TestOptions : StripeBaseOptions
+    public class TestOptions : BaseOptions
     {
         public TestOptions()
         {
@@ -44,13 +44,13 @@ namespace StripeTests.Infrastructure.TestData
         public Dictionary<string, string> Metadata { get; set; }
 
         [JsonProperty("dateequals")]
-        public StripeDateFilter EqualDateFilter { get; set; }
+        public DateFilter EqualDateFilter { get; set; }
 
         [JsonProperty("datelessthan")]
-        public StripeDateFilter LessThanDateFilter { get; set; }
+        public DateFilter LessThanDateFilter { get; set; }
 
         [JsonProperty("datecomplex")]
-        public StripeDateFilter ComplexDateFilter { get; set; }
+        public DateFilter ComplexDateFilter { get; set; }
 
         [JsonProperty("enum")]
         public TestEnum? Enum { get; set; }

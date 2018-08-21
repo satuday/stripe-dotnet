@@ -5,7 +5,7 @@
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public abstract class AccountSharedOptions : StripeBaseOptions, ISupportMetadata
+    public abstract class AccountSharedOptions : BaseOptions, ISupportMetadata
     {
         [JsonProperty("business_logo")]
         public string BusinessLogoFileId { get; set; }

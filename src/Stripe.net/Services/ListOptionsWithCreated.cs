@@ -4,7 +4,7 @@
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class StripeListOptionsWithCreated : StripeListOptions
+    public class ListOptionsWithCreated : ListOptions
     {
         [JsonProperty("created")]
         public DateTime? Created { get; set; }
